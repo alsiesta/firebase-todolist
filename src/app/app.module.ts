@@ -3,11 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+
+// import { provideAuth,getAuth } from '@angular/fire/auth';
+// import { provideDatabase,getDatabase } from '@angular/fire/database';
+// .......
 
 @NgModule({
   declarations: [
@@ -17,9 +20,25 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     BrowserModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+
+
+    // Below is the new way of injecting all firebase modules
+    // check out --> https://github.com/angular/angularfire/blob/master/samples/modular/src/app/app.module.ts
+
+    // provideAuth(() => getAuth()),
+    // provideDatabase(() => getDatabase()),
+    // provideAnalytics(() => getAnalytics()),
+    // provideFirestore(() => getFirestore()),
+    // provideFunctions(() => getFunctions()),
+    // provideMessaging(() => getMessaging()),
+    // providePerformance(() => getPerformance()),
+    // provideRemoteConfig(() => getRemoteConfig()),
+    // provideStorage(() => getStorage()),
+    // .......
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

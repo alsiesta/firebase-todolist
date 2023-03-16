@@ -1,1 +1,25 @@
 <h1>Todo-List</h1>
+
+<h3>Einbinden über array variable</h3>
+<h6>VORTEIL MIT .subscribe IST JEDOCH, DASS ICH BEI JEDEM DB UPDATE EINE BESTIMMTE FN AUSFÜHREN KANN!</h6>
+<ng-container *ngIf="updatemessage">
+{{message}}
+</ng-container>
+<ul>
+    <li *ngFor="let todo of todos; let i=index">
+       {{todo.name}}
+    </li>
+</ul>
+
+<h3>Direktes Einbinden der Observable variable <span style="color: red;">benötigt eine ASYNC pipe!!</span> </h3>
+<h6>ICH KANN DAS GESATME .subscribe AUSLASSEN, WENN ICH IM TEMPLATE DAS OBSERVABLE DIREKT EINBINDE!!!</h6>
+<ul>
+    <li *ngFor="let todo of todos$ | async">
+      {{ todo.name }}
+    </li>
+  </ul>
+
+
+
+
+
