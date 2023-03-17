@@ -1,5 +1,8 @@
 <h1>Todo-List</h1>
 
+<input [(ngModel)]="newTodoText" type="text" id="inputNewTodo">
+<button (click)="addNewTodo()">add new to-do</button>
+
 <h3>Einbinden über array variable</h3>
 <h6>VORTEIL MIT .subscribe IST JEDOCH, DASS ICH BEI JEDEM DB UPDATE EINE BESTIMMTE FN AUSFÜHREN KANN!</h6>
 <ng-container *ngIf="updatemessage">
