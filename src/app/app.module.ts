@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateCommentDirective } from './template-comment.directive';
 
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp,getApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +23,6 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
 
 
     // Below is the new way of injecting all firebase modules
